@@ -33,7 +33,7 @@ Users.findBy({ username })
         const token = genToken(user);
         res.status(200).json({
         message: `Welcome ${user.username}`,
-        // token: token
+        token: token
         })
     } else {
         res.status(401).json({ message: 'Invalid Credentials' });
