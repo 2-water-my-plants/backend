@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const Plants = require('./plants-model,js');
+const Plants = require('./plants-model.js');
 
 router.get('/', (req, res) => {
-    Plants.find()
+    Plants.findPlant()
         .then(plants => {
         res.json(plants);
         })

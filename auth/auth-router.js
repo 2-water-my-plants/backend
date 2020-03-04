@@ -46,6 +46,8 @@ Users.findBy({ username })
 
 //Create new Plant
 router.post('/myplants', (req,res) => {
+    let plant = req.body;
+    
     Plants.addPlant(plant)
         .then(newPlant => {
             res.status(201).json(newPlant);
