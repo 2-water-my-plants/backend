@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
         res.status(201).json(saved);
         })
         .catch(error => {
-        res.status(500).json(error);
+        res.status(500).json({message: 'Not able to create new user'});
         });
     });
 
@@ -30,7 +30,10 @@ Users.findBy({ username })
     .first()
     .then(user => {
     if (user && bcrypt.compareSync(password, user.password)) {
+        req.session.loggedin = true;
+
         const token = genToken(user);
+
         res.status(200).json({
         message: `Welcome ${user.username}`,
         token: token
@@ -46,7 +49,7 @@ Users.findBy({ username })
 
 //Create new Plant
 router.post('/myplants', (req,res) => {
-    Plants.addPlant(plant)
+    Plants.addPlant()
         .then(newPlant => {
             res.status(201).json(newPlant);
         })
