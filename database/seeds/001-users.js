@@ -5,10 +5,37 @@ exports.seed = function(knex, Promise) {
     .truncate()
     .then(function() {
       return knex('users').insert([
-        { name: 'sam' },
-        { name: 'frodo' },
-        { name: 'pippin' },
-        { name: 'merry' },
+        { 
+          firstName: 'Sam', 
+          lastName: 'Mas', 
+          username: 'Hobbit1', 
+          password: 'password', 
+          phoneNumber: '1231231234' 
+        },
+
+        { 
+          firstName: 'Frodo', 
+          lastName: 'Odorf', 
+          username: 'Hobbit2', 
+          password: 'password', 
+          phoneNumber: '5675675678' 
+        },
+
+        { 
+          firstName: 'Pippin', 
+          lastName: 'Nippip', 
+          username: 'Hobbit3', 
+          password: 'password', 
+          phoneNumber: '9019019012' 
+        },
+
+        { 
+          firstName: 'Merry', 
+          lastName: 'Yrrem', 
+          username: 'Hobbit4', 
+          password: 'password', 
+          phoneNumber: '1021021023' 
+        },
       ]);
     });
 };
