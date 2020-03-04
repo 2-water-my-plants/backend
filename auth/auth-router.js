@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
         res.status(201).json(saved);
         })
         .catch(error => {
-        res.status(500).json(error);
+        res.status(500).json({message: 'Not able to create new user'});
         });
     });
 
@@ -30,10 +30,13 @@ Users.findBy({ username })
     .first()
     .then(user => {
     if (user && bcrypt.compareSync(password, user.password)) {
+        req.session.loggedin = true;
+
         const token = genToken(user);
+
         res.status(200).json({
         message: `Welcome ${user.username}`,
-        // token: token
+        token: token
         })
     } else {
         res.status(401).json({ message: 'Invalid Credentials' });
@@ -64,7 +67,7 @@ function genToken(user) {
         username: user.username,
         }
         const options = {
-        expiresIn: '8h'
+        expiresIn: '2wks'
         };
     
     return jwt.sign(payload, secrets.jwtSecret, options);

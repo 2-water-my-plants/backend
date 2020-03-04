@@ -1,5 +1,7 @@
 # backend
 
+https://water-myplants-2.herokuapp.com/
+
 API Endpoints
 
 | Type | Endpoints | Description |
