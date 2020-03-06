@@ -6,6 +6,10 @@ exports.up = function(knex, Promise) {
         tbl.string("species", 255);
         tbl.string("h2oFrequency");
         tbl.string("nickname", 255);
+        tbl.string("image");
+        tbl.string("dateLastWatered");
+        tbl.string("notificationTime");
+        tbl.boolean("notificationEnabled");
     })
 };
 
