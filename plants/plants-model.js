@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function findPlant() {
-    return db('plants').select('id', 'name');
+    return db('plants').select('id', 'nickName', 'species', 'h2oFrequency', 'image', 'dateLastWatered', 'notificationTime', 'notificationEnabled');
 }
 
 function findByPlant(filter) {
