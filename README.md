@@ -15,7 +15,9 @@ API Endpoints
 | GET  | /api/plants/:id | find plant by plant ID |
 | GET  | /api/users/:id/plants | get plants by user ID |
 | DELETE | /api/users/:id  | delete a user by ID |
-| PUT  | /api/ users/:id  | update user first and last name by ID |
+| DELETE | /api/plants/:id | delete a plant by ID |
+| PUT  | /api/users/:id  | update user first and last name by ID |
+| PUT  | /api/plants/:id  | update plant informtion by ID  |
 
 
 
