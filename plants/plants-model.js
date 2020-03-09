@@ -5,6 +5,8 @@ module.exports = {
     findPlant,
     findByPlant,
     findByPlantId,
+    removePlant,
+    updatePlant
 };
 
 function findPlant() {
@@ -26,3 +28,17 @@ function findByPlantId(id) {
     .where({ id })
     .first();
 }
+
+function removePlant(id) {
+    return db('plants')
+      .where({ id })
+      .del();
+  }
+
+function updatePlant(id, plant) {
+    db('plants')
+    .where('id')
+    .update(plant)
+    return findByPlantId(id);
+}
+
