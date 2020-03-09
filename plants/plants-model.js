@@ -35,10 +35,10 @@ function removePlant(id) {
       .del();
   }
 
-function updatePlant(id, plant) {
-    db('plants')
-    .where('id')
-    .update(plant)
+async function updatePlant(id, plant) {
+    await db('plants')
+    .where({id})
+    .update(plant, id)
     return findByPlantId(id);
 }
 

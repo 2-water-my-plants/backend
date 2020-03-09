@@ -25,18 +25,17 @@ router.get('/:id', (req,res) => {
     }
 });
 
-//Update user phoneNumber and password
 router.put('/:id', (req, res) => {
   
     const { id } = req.params;
     const changes = req.body;
   
     Plants.findByPlantId(id)
-      .then(update => {
-        if (update) {
+      .then(plant => {
+        if (plant) {
           Plants.updatePlant(id, changes)
-            .then(plant => {
-              res.status(200).json(plant);
+            .then(updatedPlant => {
+              res.status(200).json(updatedPlant);
             });
         } else {
           res.status(404).json({ message: 'Could not find plant with the given id'});
