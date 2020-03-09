@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
         tbl.string("dateLastWatered");
         tbl.string("notificationTime");
         tbl.boolean("notificationEnabled");
+        tbl.integer("userId").references('id').inTable('users').onDelete('CASCADE');
     })
 };
 

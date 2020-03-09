@@ -12,7 +12,8 @@ exports.seed = function(knex) {
           image: "https://www.ourhouseplants.com/imgs-content/large_bird_nest_fern.jpg",
           dateLastWatered: "480",
           notificationTime: "08:30:00",
-          notificationEnabled: false
+          notificationEnabled: false,
+          userId: 1,
         },
 
         {

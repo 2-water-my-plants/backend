@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Users = require('./users-model.js');
+const db = require('../database/dbConfig.js');
 
 router.get('/', (req, res) => {
     Users.find()
@@ -64,6 +65,17 @@ router.delete('/:id', (req, res) => {
         res.status(500).json({ message: 'The user could not be removed' });
       })
   });
+
+  //User with plants
+  router.get('/:id/plants', (req, res) => {
+    const {id} = req.params;
+    db('plants')
+      .where({userId: id})
+      .then(plant => {
+        res.status(200).json(plant);
+      })
+      .catch(err => res.status(err));
+  })
   
 
 
